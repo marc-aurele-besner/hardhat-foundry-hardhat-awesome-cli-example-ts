@@ -6,19 +6,19 @@ pragma solidity ^0.8.0;
  */
 
 // import "hardhat/console.sol";
-import './utils/console.sol';
-import './utils/stdlib.sol';
-import './utils/test.sol';
-import { CheatCodes } from './utils/cheatcodes.sol';
+import "./utils/console.sol";
+import "./utils/stdlib.sol";
+import "./utils/test.sol";
+import {CheatCodes} from "./utils/cheatcodes.sol";
 
-import { MockERC1155Upgradeable } from '../MockERC1155Upgradeable.sol';
+import { MockERC1155Upgradeable } from "../MockERC1155Upgradeable.sol";
 
 contract MockERC1155UpgradeableTest is DSTest {
     Vm public constant vm = Vm(HEVM_ADDRESS);
 
     MockERC1155Upgradeable private mockERC1155Upgradeable;
 
-    string constant _TEST_NAME = 'MockERC1155Upgradeable';
+    string constant _TEST_NAME = "MockERC1155Upgradeable";
     string constant _TEST_SYMBOL = 'MOCK';
     string constant _TEST_URI = 'https://google.com';
 
@@ -35,9 +35,9 @@ contract MockERC1155UpgradeableTest is DSTest {
     function test_MockERC1155Upgradeable_symbol() public {
         assertEq(mockERC1155Upgradeable.symbol(), _TEST_SYMBOL);
     }
-
+    
     function test_MockERC1155Upgradeable_mint(
-        address to_,
+        address to_, 
         uint256 tokenId_,
         uint256 amount_
     ) public {
@@ -53,7 +53,7 @@ contract MockERC1155UpgradeableTest is DSTest {
     }
 
     function test_MockERC1155Upgradeable_burn(
-        address to_,
+        address to_, 
         uint256 tokenId_,
         uint256 amount_
     ) public {
