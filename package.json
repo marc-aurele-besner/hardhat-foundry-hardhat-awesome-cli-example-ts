@@ -55,6 +55,6 @@
   },
   "dependencies": {
     "@openzeppelin/contracts-upgradeable": "^4.6.0",
-    "hardhat-awesome-cli": "^0.0.15"
+    "hardhat-awesome-cli": "^0.0.16"
   }
 }
