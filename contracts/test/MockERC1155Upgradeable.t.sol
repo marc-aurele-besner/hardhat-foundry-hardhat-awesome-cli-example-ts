@@ -41,7 +41,7 @@ contract MockERC1155UpgradeableTest is DSTest {
         uint256 tokenId_,
         uint256 amount_
     ) public {
-        vm.assume(to_ != address(0));
+        vm.assume(to_ != address(0) && to_.code.length == 0);
         vm.assume(tokenId_ > 0);
         vm.assume(amount_ > 0);
 
@@ -57,7 +57,7 @@ contract MockERC1155UpgradeableTest is DSTest {
         uint256 tokenId_,
         uint256 amount_
     ) public {
-        vm.assume(to_ != address(0));
+        vm.assume(to_ != address(0) && to_.code.length == 0);
         vm.assume(tokenId_ > 0);
         vm.assume(amount_ > 0);
 
@@ -70,6 +70,26 @@ contract MockERC1155UpgradeableTest is DSTest {
         vm.prank(to_);
 
         mockERC1155Upgradeable.burn(tokenId_, amount_);
+
+        assertEq(mockERC1155Upgradeable.balanceOf(to_, tokenId_), 0);
+    }
+
+    function test_MockERC1155Upgradeable_burnFrom(
+        address to_, 
+        uint256 tokenId_,
+        uint256 amount_
+    ) public {
+        vm.assume(to_ != address(0) && to_.code.length == 0);
+        vm.assume(tokenId_ > 0);
+        vm.assume(amount_ > 0);
+
+        assertEq(mockERC1155Upgradeable.balanceOf(to_, tokenId_), 0);
+
+        mockERC1155Upgradeable.mint(to_, tokenId_, amount_);
+
+        assertEq(mockERC1155Upgradeable.balanceOf(to_, tokenId_), amount_);
+
+        mockERC1155Upgradeable.burnFrom(to_, tokenId_, amount_);
 
         assertEq(mockERC1155Upgradeable.balanceOf(to_, tokenId_), 0);
     }
