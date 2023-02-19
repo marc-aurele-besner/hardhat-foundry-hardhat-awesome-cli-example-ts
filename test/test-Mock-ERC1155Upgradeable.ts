@@ -1,4 +1,5 @@
 import { expect } from 'chai'
+// @ts-ignore-next-line
 import { ethers } from 'hardhat'
 
 let mockERC1155Upgradeable: any
