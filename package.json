@@ -52,7 +52,7 @@
     "uninstall": "^0.0.0"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.8.1",
+    "@openzeppelin/contracts": "^5.0.0",
     "@openzeppelin/contracts-upgradeable": "^4.8.1",
     "@openzeppelin/hardhat-upgrades": "^1.22.1",
     "hardhat-awesome-cli": "^0.1.1"
